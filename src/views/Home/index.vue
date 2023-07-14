@@ -1,10 +1,13 @@
 <template>
-
+  <NowPlaying/>
 </template>
 
 <script>
+import NowPlaying from "@/components/Home/Now-Playing.vue";
+
 export default {
-  name: "index"
+  name: "index",
+  components: {NowPlaying}
 }
 </script>
 
