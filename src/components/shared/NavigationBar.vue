@@ -17,7 +17,7 @@
           <v-btn icon="mdi-dots-vertical"></v-btn>
         </div>
         <v-spacer></v-spacer>
-        <v-app-bar-nav-icon class="hidden-lg hidden-md" :elevation="0"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon class="hidden-lg-and-up hidden-md" :elevation="0"></v-app-bar-nav-icon>
       </div>
 
     </div>
