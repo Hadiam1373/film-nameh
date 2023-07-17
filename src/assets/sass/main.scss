@@ -1,0 +1,12 @@
+@font-face {
+  font-family: KALAMEH;
+  src: url("../fonts/KALAMEH(FANUM)-LIGHT.ttf");
+  src: url("../fonts/KALAMEH(FANUM)-MEDIUM.ttf");
+}
+
+* {
+  font-family: KALAMEH, serif !important;
+}
+
+@import "public";
+@import "variable";

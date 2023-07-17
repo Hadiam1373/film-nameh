@@ -19,6 +19,9 @@ export default createVuetify({
         colors: {
           primary: '#1867C0',
           secondary: '#5CBBF6',
+          success : '#56F000',
+          pending:'#FFB302',
+          failed:'#FF3838'
         },
       },
     },

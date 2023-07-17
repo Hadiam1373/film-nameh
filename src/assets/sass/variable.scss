@@ -1,0 +1,9 @@
+$colors: (
+        success: #2bb57a,
+        danger: #e85050,
+        warning: #edb70b
+);
+
+@function getColor($color) {
+  @return map-get($map: $colors, $key: $color);
+}

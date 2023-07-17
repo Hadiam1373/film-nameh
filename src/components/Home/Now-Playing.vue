@@ -16,7 +16,8 @@
                  :src="imgUrl+item.backdrop_path"></v-img>
           <v-img class="hidden-md-and-up" height="100%" sizes="100%" :src="imgUrl+item.backdrop_path"></v-img>
           <div class="info-movie">
-            dfgdfgfdgfdgdfg
+             <h2>{{item.title}}</h2>
+              <VoteAverage :vote="item.vote_average"/>
           </div>
         </v-card>
       </v-window-item>
@@ -27,6 +28,7 @@
 <script setup>
 import {onMounted, ref} from "vue";
 import MovieLists from "@/api/apis/MovieLists";
+import VoteAverage from "@/components/shared/VoteAverage.vue";
 
 let onboarding = ref(0)
 const nowPlayingData = ref()
@@ -47,13 +49,12 @@ onMounted(() => {
 
 </script>
 
-<style scoped>
+<style  lang="scss">
 .info-movie {
   position: absolute;
   bottom: 20px;
   left: 25%;
   right: 25%;
-  background-color: rgba(0, 0, 0, 0.82);
-  color: white;
+  @extend .card-info;
 }
 </style>

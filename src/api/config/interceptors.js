@@ -9,6 +9,9 @@ const axiosIns = axios.create({
     'Cache-Control': 'no-cache',
     'Content-Type': 'application/json;charset=utf-8',
     Accept: '*/*',
+  },
+  params:{
+    language:'fa-IR'
   }
 })
 
