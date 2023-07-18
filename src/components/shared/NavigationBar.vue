@@ -1,14 +1,14 @@
 <template>
   <v-app-bar :elevation="2">
     <div class="w-100 d-flex align-center justify-space-between px-3">
-      <div class="d-flex w-50 align-center">
-        <img style="width: 200px" src="../../assets/logo.svg"  alt=""/>
-        <div class="mx-5 d-flex pa-3 hidden-sm-and-down">
-          <span class="mx-2 v-card-title">Movies</span>
-          <span class="mx-2 v-card-title">TV Shows</span>
-          <span class="mx-2 v-card-title">People</span>
-          <span class="mx-2 v-card-title">More</span>
-        </div>
+      <div class="d-flex w-75 align-center">
+        <img style="width: 200px" src="../../assets/logo.svg" alt=""/>
+        <v-row class="mx-5 pa-3 hidden-sm-and-down">
+          <Menu activator="Movies" :items="moviesItem"/>
+          <Menu activator="TV Shows" :items="tvItem"/>
+          <Menu activator="People" :items="peopleItem"/>
+          <Menu activator="More" :items="moreItem"/>
+        </v-row>
       </div>
       <div class="d-flex align-center justify-space-between">
         <div class="d-flex align-center mx-5">
@@ -22,10 +22,29 @@
   </v-app-bar>
 </template>
 
-<script>
-export default {
-  name: "NavigationBar"
-}
+<script setup>
+import Menu from "@/components/shared/Menu.vue";
+
+const moviesItem = [
+  {title: 'Popular', to: '/'},
+  {title: 'Now Playing', to: '/v'},
+  {title: 'Upcoming', to: '/fe'},
+  {title: 'Top Rated', to: '/e'}
+]
+const tvItem = [
+  {title: 'Popular', to: '/r'},
+  {title: 'Airing Today', to: '/h'},
+  {title: 'On TV', to: '/k'},
+  {title: 'Top Rated', to: '/vc'}
+]
+const peopleItem = [
+  {title: 'Popular People', to: '/df'},
+]
+const moreItem = [
+  {title: 'Discussions', to: '/dfg'},
+  {title: 'Leaderboard', to: '/dfg'},
+  {title: 'Support', to: '/df'},
+]
 </script>
 
 <style scoped>

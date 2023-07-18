@@ -6,10 +6,10 @@
   >
     <v-window show-arrows v-model="onboarding">
       <template v-slot:prev="{ props }">
-        <v-icon size="large" @click="props.onClick">mdi-magnify</v-icon>
+        <v-icon size="large" @click="props.onClick">mdi-chevron-left</v-icon>
       </template>
       <template v-slot:next="{ props }">
-        <v-icon size="large" @click="props.onClick">mdi-magnify</v-icon>
+        <v-icon size="large" @click="props.onClick">mdi-chevron-right</v-icon>
       </template>
       <v-window-item
         v-for="item in nowPlayingData"
@@ -21,29 +21,17 @@
           <v-img class="hidden-sm-and-down" style="object-position: 100% 20%;" height="700" cover sizes="100%"
                  :src="imgUrl+item.backdrop_path"></v-img>
           <v-img class="hidden-md-and-up" height="100%" sizes="100%" :src="imgUrl+item.backdrop_path"></v-img>
-          <div class="mobile-info-section hidden-lg-and-up hidden-md">
+          <div class="info-section">
             <div>
-              <span class="font-weight-bold">{{ item.title }}</span>
-              <div>
+              <span class="font-weight-bold v-card-title">{{ item.title }}</span>
+              <div class="text-center">
                 <small>Votes </small>
                 <VoteAverage :vote="item.vote_average"/>
                 <small> From {{ item.vote_count }} Total Votes  </small>
               </div>
             </div>
             <div>
-              <p class="hidden-xs hidden-lg-and-up hidden-md ">{{ item.overview }}</p>
-            </div>
-          </div>
-
-          <div class="text-left info-movie  hidden-sm-and-down">
-            <h2>{{ item.title }}</h2>
-            <div class="text-left mt-5">
-              <span>Votes </span>
-              <VoteAverage :vote="item.vote_average"/>
-              <span> From {{ item.vote_count }} Total Votes  </span>
-            </div>
-            <div class="text-left mt-5">
-              <p>{{ item.overview }}</p>
+              <p class="hidden-xs">{{ item.overview }}</p>
             </div>
           </div>
         </v-card>
@@ -85,7 +73,7 @@ onMounted(() => {
   @extend .card-info;
 }
 
-.mobile-info-section {
+.info-section {
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -94,6 +82,7 @@ onMounted(() => {
   padding: 10px;
   align-items: center;
   gap: 20px;
+  color: #fff;
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(1, 1, 19, 0.24413515406162467) 57%);
 }
 </style>
