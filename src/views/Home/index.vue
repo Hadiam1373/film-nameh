@@ -1,13 +1,15 @@
 <template>
   <NowPlaying/>
+  <Trending/>
 </template>
 
 <script>
 import NowPlaying from "@/components/Home/Now-Playing.vue";
+import Trending from "@/components/Home/Trending.vue";
 
 export default {
   name: "index",
-  components: {NowPlaying}
+  components: {Trending, NowPlaying}
 }
 </script>
 

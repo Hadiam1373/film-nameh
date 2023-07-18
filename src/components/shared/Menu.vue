@@ -13,7 +13,7 @@
         v-for="(item, index) in prop.items"
         :key="index"
         :active="route.path === item.to"
-        active-color="green"
+        active-color="primary"
       >
         <v-list-item-title class="pointer" @click="router.push(item.to)">{{ item.title }}</v-list-item-title>
       </v-list-item>

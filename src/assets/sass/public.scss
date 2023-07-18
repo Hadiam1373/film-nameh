@@ -1,5 +1,5 @@
 //public classes
-.card-info{
+.card-info {
   background: rgba(255, 255, 255, .06);
   border: 1px solid #33353d;
   box-sizing: border-box;
@@ -15,6 +15,14 @@
   text-align: right;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
+}
+
+.main-slider {
+  width: 100%;
+  background-image: url("../../assets/images/bg-slider.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(5px);
 }
