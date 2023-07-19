@@ -2,13 +2,13 @@
   <div class="main-slider">
     <v-container>
       <div class="d-flex flex-row w-100 align-center">
-        <div class="mr-5"><h3 class="text-white">Trending</h3></div>
+        <div class="mr-5"><h3 class="text-white">What's Popular</h3></div>
         <div>
-          <Switch @switchHandler="(n) => switchHandler(n)" class="mx-5" first-value="Day" second-value="Week"/>
+          <Switch @switchHandler="(n) => switchHandler(n)" class="mx-5" first-value="On TV" second-value="in Theatre"/>
         </div>
       </div>
     </v-container>
-    <Slider :items="trending">
+    <Slider :items="popular">
       <template v-slot:card="{data}">
         <v-card
           color="grey-lighten-1"
@@ -18,7 +18,7 @@
         >
           <v-img height="300" cover :src="imgUrl+data.backdrop_path"></v-img>
           <div class="circular-position">
-            <small class="text-maxWidth font-weight-bold">{{ data.title}}</small>
+            <small class="text-maxWidth font-weight-bold">{{ data.title }}</small>
             <Progresscircular class="circular" :vote="data.vote_average"/>
           </div>
         </v-card>
@@ -33,33 +33,43 @@ import Trending from "@/api/apis/Trending";
 import {onMounted, ref} from "vue";
 import Switch from "@/components/shared/Switch.vue";
 import Progresscircular from "@/components/shared/Progresscircular.vue";
+import MovieLists from "@/api/apis/MovieLists";
+import TVSeries from "@/api/apis/TVSeries";
 
 const imgUrl = import.meta.env.VITE_IMG_URL
 
-const trending = ref()
+const popular = ref()
 
-function getAllTrending() {
-  Trending.allTrending('day').then(
+function getPopularMovie() {
+  MovieLists.Popular().then(
     (r) => {
-      trending.value = r.data.results
+      popular.value = r.data.results
+    }
+  )
+}
+
+function getPopularSeries() {
+  TVSeries.getPopular().then(
+    (r) => {
+      popular.value = r.data.results
     }
   )
 }
 
 function switchHandler(value) {
-  Trending.allTrending(value).then(
-    (r) => {
-      trending.value = r.data.results
-    }
-  )
+  if (value === 'one') {
+    getPopularMovie()
+  } else if (value === 'two') {
+    getPopularSeries()
+  }
 }
 
 onMounted(() => {
-  getAllTrending()
+  getPopularMovie()
 })
 </script>
 
-<style  lang="scss">
+<style lang="scss">
 .card-position {
   position: relative;
 
@@ -81,7 +91,7 @@ onMounted(() => {
   }
 }
 
-.text-maxWidth{
+.text-maxWidth {
   @include textMaxWidth(150px)
 }
 </style>

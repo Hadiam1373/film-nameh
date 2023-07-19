@@ -26,3 +26,11 @@
   background-size: cover;
   backdrop-filter: blur(5px);
 }
+
+@mixin textMaxWidth($with) {
+  white-space: nowrap;
+  width: $with;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}

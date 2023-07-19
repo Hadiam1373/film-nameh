@@ -1,5 +1,5 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
   {
@@ -11,6 +11,11 @@ const routes = [
         name: 'Home',
         component: () => import('@/views/Home/index.vue'),
       },
+      {
+        path: '/movie/:id',
+        name: 'Movie',
+        component: () => import('@/views/Movie/MoviePage/index.vue')
+      }
     ],
   },
 ]
